@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "projects": {
+    "quicktusk": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/quicktusk",
+      "sourceRoot": "apps/quicktusk/src",
+      "prefix": "perflog",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/quicktusk",
+            "index": "apps/quicktusk/src/index.html",
+            "main": "apps/quicktusk/src/main.ts",
+            "polyfills": "apps/quicktusk/src/polyfills.ts",
+            "tsConfig": "apps/quicktusk/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/quicktusk/src/favicon.ico",
+              "apps/quicktusk/src/assets"
+            ],
+            "styles": ["apps/quicktusk/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/quicktusk/src/environments/environment.ts",
+                  "with": "apps/quicktusk/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "quicktusk:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "quicktusk:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "quicktusk:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/quicktusk/tsconfig.app.json",
+              "apps/quicktusk/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/quicktusk/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/quicktusk/jest.config.js",
+            "tsConfig": "apps/quicktusk/tsconfig.spec.json",
+            "setupFile": "apps/quicktusk/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "quicktusk-e2e": {
+      "root": "apps/quicktusk-e2e",
+      "sourceRoot": "apps/quicktusk-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/quicktusk-e2e/cypress.json",
+            "tsConfig": "apps/quicktusk-e2e/tsconfig.e2e.json",
+            "devServerTarget": "quicktusk:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "quicktusk:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/quicktusk-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/quicktusk-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "quicktusk"
+}

@@ -1,0 +1,18 @@
+{
+  "npmScope": "perflog",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "quicktusk-e2e": {
+      "tags": []
+    },
+    "quicktusk": {
+      "tags": []
+    }
+  }
+}
