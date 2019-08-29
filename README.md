@@ -1,84 +1,19 @@
-# Perflog
+# Basic Perf Tracking
 
-This project was generated using [Nx](https://nx.dev).
+This is an example repository to correspond with a talk given by Jeff Cross about automated performance tracking with Lighthouse and PWMetrics.
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+## Steps
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+(These steps assume basic understanding of [Lighthouse](https://developers.google.com/web/tools/lighthouse/), [Angular CLI](https://angular.io/cli), and npm)
 
-## Quick Start & Documentation
+1. Run `yarn` or `npm install`
+2. Copy this Google Sheet: https://docs.google.com/spreadsheets/d/17jgt_uKxm4WvROmKMfSDzhdCAstNvyaiDP_k2XqzgD0/edit#gid=0
+3. Copy the ID of the new Google Sheet from the url into the config as `sheets.options.spreadsheetId`.
+4. Go to this URL and follow step 1 to generate Google API credentials and download them: https://developers.google.com/sheets/api/quickstart/nodejs#step_1_turn_on_the_api_name
+5. Move the downloaded credentials JSON file to the root of this workspace (it will be ignored by git)
+6. Run `ng serve quicktusk --prod`
+7. In a new terminal, run `yarn pwmetrics`
+8. PWMetrics should run, and then append your results to your Google Sheet.
+9. If it didn't work, create a new issue and tweet at me to let me know: [@jeffbcross](https://twitter.com/jeffbcross)
 
-[Nx Documentation](https://nx.dev/angular)
-
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
-
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
-
-## Adding capabilities to your workspace
-
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are some plugins which you can add to your workspace:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@perflog/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
+You can review the commit history on the project to see the steps taken to set up the workspace for tracking.
