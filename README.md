@@ -11,6 +11,7 @@ This is an example repository to correspond with a talk given by Jeff Cross abou
 3. Copy the ID of the new Google Sheet from the url into the config as `sheets.options.spreadsheetId`.
 4. Go to this URL and follow step 1 to generate Google API credentials and download them: https://developers.google.com/sheets/api/quickstart/nodejs#step_1_turn_on_the_api_name
 5. Move the downloaded credentials JSON file to the root of this workspace (it will be ignored by git)
+6. Install needed global dependencies`npm install -g yarn pwmetrics @angular/cli`
 6. Run `ng serve quicktusk --prod`
 7. In a new terminal, run `yarn pwmetrics`
 8. PWMetrics should run, and then append your results to your Google Sheet.
