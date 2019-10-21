@@ -26,7 +26,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "pwmetrics": "pwmetrics --config pwmetrics-config.js"
+    "pwmetrics": "pwmetrics --config pwmetrics-config.js",
+    "pwmetrics-secure": "node tools/puppeteer-login.js"
   },
   "private": true,
   "dependencies": {
@@ -60,6 +61,7 @@
     "jest": "24.1.0",
     "jest-preset-angular": "7.0.0",
     "prettier": "1.16.4",
+    "puppeteer": "^1.20.0",
     "pwmetrics": "^4.2.2",
     "ts-jest": "24.0.0",
     "ts-node": "~7.0.0",
