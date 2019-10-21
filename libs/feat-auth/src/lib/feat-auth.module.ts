@@ -6,6 +6,17 @@ import { AuthService } from '@perflog/data-access-auth';
 
 @Component({
   template: `
+    <h1>You Have Successfully Logged Out</h1>
+  `
+})
+export class LogoutPageComponent {
+  constructor(auth: AuthService) {
+    auth.logout();
+  }
+}
+
+@Component({
+  template: `
     <label for="email">
       Email
       <input #email name="email" type="email" />
@@ -27,9 +38,10 @@ export class AuthFormComponent {
     CommonModule,
 
     RouterModule.forChild([
-      { path: '', pathMatch: 'full', component: AuthFormComponent }
+      { path: 'login', pathMatch: 'full', component: AuthFormComponent },
+      { path: 'logout', pathMatch: 'full', component: LogoutPageComponent }
     ])
   ],
-  declarations: [AuthFormComponent]
+  declarations: [AuthFormComponent, LogoutPageComponent]
 })
 export class FeatAuthModule {}

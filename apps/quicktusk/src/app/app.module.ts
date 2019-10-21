@@ -40,7 +40,7 @@ export class CheckAuthGuard implements CanActivate {
     RouterModule.forRoot(
       [
         {
-          path: 'login',
+          path: 'auth',
           loadChildren: () =>
             import('@perflog/feat-auth').then(esm => esm.FeatAuthModule)
         },

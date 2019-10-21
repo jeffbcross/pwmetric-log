@@ -4,14 +4,21 @@ import { Subject, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
+const LOCAL_STORAGE_KEY = 'perflogAuthState';
+
+export interface User {
+  name: string;
+  email: string;
+}
+
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private _privateAuthState = new BehaviorSubject(
-    JSON.parse(localStorage.getItem('authState') || 'null')
+  private _privateAuthState = new BehaviorSubject<User | null>(
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY) || 'null')
   );
   public authState = this._privateAuthState.pipe(
     tap(state => {
-      localStorage.setItem('authState', JSON.stringify(state));
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(state));
     })
   );
 
@@ -23,6 +30,11 @@ export class AuthService {
       email
     });
     this.router.navigate(['/secure']);
+  }
+
+  logout() {
+    localStorage.removeItem(LOCAL_STORAGE_KEY);
+    this._privateAuthState.next(null);
   }
 }
 
