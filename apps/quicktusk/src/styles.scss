@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-display: swap;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #555;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat Subrayada', Arial, Helvetica, sans-serif;
+}
