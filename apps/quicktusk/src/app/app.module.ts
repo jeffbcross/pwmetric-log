@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { DataAccessAuthModule } from '@perflog/data-access-auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,7 +15,8 @@ import { AppComponent } from './app.component';
         loadChildren: () =>
           import('@perflog/feat-auth').then(esm => esm.FeatAuthModule)
       }
-    ])
+    ]),
+    DataAccessAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

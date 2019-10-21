@@ -145,6 +145,33 @@
         }
       },
       "schematics": {}
+    },
+    "data-access-auth": {
+      "projectType": "library",
+      "root": "libs/data-access-auth",
+      "sourceRoot": "libs/data-access-auth/src",
+      "prefix": "perflog",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data-access-auth/tsconfig.lib.json",
+              "libs/data-access-auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data-access-auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data-access-auth/jest.config.js",
+            "tsConfig": "libs/data-access-auth/tsconfig.spec.json",
+            "setupFile": "libs/data-access-auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

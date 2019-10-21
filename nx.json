@@ -16,6 +16,9 @@
     },
     "feat-auth": {
       "tags": []
+    },
+    "data-access-auth": {
+      "tags": []
     }
   }
 }
