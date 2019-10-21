@@ -37,26 +37,21 @@ export class CheckAuthGuard implements CanActivate {
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      [
-        {
-          path: 'auth',
-          loadChildren: () =>
-            import('@perflog/feat-auth').then(esm => esm.FeatAuthModule)
-        },
-        {
-          path: 'secure',
-          loadChildren: () =>
-            import('@perflog/feat-secure-page').then(
-              esm => esm.FeatSecurePageModule
-            ),
-          canActivate: [CheckAuthGuard]
-        }
-      ],
+    RouterModule.forRoot([
       {
-        enableTracing: true
+        path: 'auth',
+        loadChildren: () =>
+          import('@perflog/feat-auth').then(esm => esm.FeatAuthModule)
+      },
+      {
+        path: 'secure',
+        loadChildren: () =>
+          import('@perflog/feat-secure-page').then(
+            esm => esm.FeatSecurePageModule
+          ),
+        canActivate: [CheckAuthGuard]
       }
-    ),
+    ]),
     DataAccessAuthModule
   ],
   providers: [CheckAuthGuard],
