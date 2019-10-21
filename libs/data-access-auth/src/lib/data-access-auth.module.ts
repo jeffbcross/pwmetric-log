@@ -2,6 +2,7 @@ import { NgModule, Injectable } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subject, BehaviorSubject } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,11 +15,14 @@ export class AuthService {
     })
   );
 
+  constructor(private router: Router) {}
+
   login(email: string, password: string) {
     this._privateAuthState.next({
       name: 'Mr. User',
       email
     });
+    this.router.navigate(['/secure']);
   }
 }
 

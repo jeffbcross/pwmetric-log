@@ -19,6 +19,9 @@
     },
     "data-access-auth": {
       "tags": []
+    },
+    "feat-secure-page": {
+      "tags": []
     }
   }
 }

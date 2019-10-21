@@ -1,4 +1,10 @@
 Auth Service Status: {{ auth.authState | async | json }}
 <br />
-<a routerLink="/login">Login</a>
+<ng-container *ngIf="!(auth.authState | async); else logOut">
+  <a routerLink="/login">Login</a>
+</ng-container>
+<ng-template #logOut>
+  <a routerLink="/logout">Logout</a>
+</ng-template>
+
 <router-outlet></router-outlet>

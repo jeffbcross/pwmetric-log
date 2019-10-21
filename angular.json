@@ -172,6 +172,33 @@
         }
       },
       "schematics": {}
+    },
+    "feat-secure-page": {
+      "projectType": "library",
+      "root": "libs/feat-secure-page",
+      "sourceRoot": "libs/feat-secure-page/src",
+      "prefix": "perflog",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feat-secure-page/tsconfig.lib.json",
+              "libs/feat-secure-page/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feat-secure-page/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feat-secure-page/jest.config.js",
+            "tsConfig": "libs/feat-secure-page/tsconfig.spec.json",
+            "setupFile": "libs/feat-secure-page/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
