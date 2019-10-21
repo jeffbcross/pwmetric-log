@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@perflog/feat-auth": ["libs/feat-auth/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

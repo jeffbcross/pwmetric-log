@@ -118,6 +118,33 @@
           }
         }
       }
+    },
+    "feat-auth": {
+      "projectType": "library",
+      "root": "libs/feat-auth",
+      "sourceRoot": "libs/feat-auth/src",
+      "prefix": "perflog",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feat-auth/tsconfig.lib.json",
+              "libs/feat-auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feat-auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feat-auth/jest.config.js",
+            "tsConfig": "libs/feat-auth/tsconfig.spec.json",
+            "setupFile": "libs/feat-auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
