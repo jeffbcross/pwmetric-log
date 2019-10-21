@@ -1,0 +1,17 @@
+header {
+  width: 100%;
+  background: #eee;
+  padding: 12px;
+  text-align: right;
+  box-sizing: border-box;
+
+  .header-link {
+    display: inline-block;
+  }
+
+  .header-welcome {
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 12px;
+  }
+}
