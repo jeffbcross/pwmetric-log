@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '@perflog/data-access-auth';
 
 @Component({
   selector: 'perflog-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'quicktusk';
+  constructor(public auth: AuthService) {}
 }

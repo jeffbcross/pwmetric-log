@@ -13,6 +13,15 @@
     },
     "quicktusk": {
       "tags": []
+    },
+    "feat-auth": {
+      "tags": []
+    },
+    "data-access-auth": {
+      "tags": []
+    },
+    "feat-secure-page": {
+      "tags": []
     }
   }
 }
